@@ -1,0 +1,1248 @@
+/* ESTILOS GENERALES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  background-color: white;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+/* Menú centrado - CONTAINER */
+.nav-center-container {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  max-width: 800px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Items del menú */
+.menu-item {
+  position: relative;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #0066cc;
+}
+
+/* Flecha del dropdown */
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+/* Menús desplegables */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 15px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.has-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Items del dropdown */
+.dropdown-menu li {
+  list-style: none;
+  width: 100%;
+}
+
+.dropdown-menu a {
+  padding: 12px 25px;
+  display: block;
+  color: #555;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #0066cc;
+  border-left-color: #0066cc;
+  padding-left: 30px;
+}
+
+/* REDES SOCIALES SIMPLES */
+.nav-social {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.nav-social a:hover .social-icon {
+  transform: scale(1.1);
+}
+
+/* Menú hamburguesa */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.burger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animación hamburguesa a X */
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Section pegado al tope del body */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Primera imagen PEGADA al borde superior */
+.cabecera {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.cabecera img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.texto {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 550;
+  line-height: 1.8;
+  color: grey;
+  padding: 30px 20px;
+  margin: 40px auto;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Segunda imagen */
+.foto-inicio {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.foto-inicio img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.botones {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.botones img {
+  height: 450px;
+  width: 450px;
+  max-width: 100%;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ========== SECCIÓN CON IMAGEN DE FONDO ========== */
+.seccion-completa {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+/* Fondo que cubre TODA la pantalla */
+.fondo-completo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("imagenes/2-FOTO-INICIO-2.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Capa oscura semi-transparente sobre el fondo */
+.fondo-completo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor del contenido */
+.contenido-principal {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Título grande y centrado */
+.titulo-grande {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  max-width: 1000px;
+  font-weight: 700;
+  padding: 0 15px;
+}
+
+/* Ajusta el contenedor de las 3 imágenes */
+.galeria-imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* Cada tarjeta de imagen */
+.tarjeta-imagen {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Rectangular estilo banner (16:9) */
+.fondo-blanco {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 180px;
+  max-width: 500px;
+}
+
+.fondo-blanco img {
+  max-width: 100%;
+  max-height: 170px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.fondo-blanco:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* ========== SECCIÓN DE CURSOS ========== */
+.seccion-cursos {
+  background-color: white;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.contenedor-cursos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Título centrado arriba */
+.titulo-cursos {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-cursos::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Grid de cursos en horizontal */
+.grid-cursos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* Tarjeta de cada curso */
+.tarjeta-curso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-curso:hover {
+  transform: translateY(-5px);
+}
+
+/* Contenedor para efecto flip */
+.contenedor-imagenes {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor para ambas caras */
+.cara {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Frente (imagen principal) */
+.frente {
+  background-color: white;
+  transform: rotateY(0deg);
+}
+
+/* Contenedor de imagen dentro del frente */
+.contenedor-img-frente {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-img-frente img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Reverso (imagen hover) */
+.reverso {
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+/* Contenedor de imagen dentro del reverso */
+.contenedor-img-reverso {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-img-reverso img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Efecto hover - flip */
+.contenedor-imagenes:hover .frente {
+  transform: rotateY(180deg);
+}
+
+.contenedor-imagenes:hover .reverso {
+  transform: rotateY(360deg);
+}
+
+/* Descripción del curso */
+.descripcion-curso {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #34495e;
+  padding: 0 10px;
+  margin-top: 10px;
+  font-weight: 500;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== SECCIÓN SOBRE NOSOTROS ========== */
+.seccion-nosotros {
+  padding: 100px 20px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.contenedor-nosotros {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 0 20px;
+}
+
+/* Contenido de texto a la IZQUIERDA */
+.contenido-texto {
+  flex: 1;
+  text-align: left;
+}
+
+/* Título grande a la izquierda */
+.titulo-nosotros {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-nosotros::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Texto debajo del título */
+.descripcion-nosotros {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* Botón "Leer más" */
+.boton-leer-mas {
+  display: inline-block;
+  padding: 16px 40px;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Efecto hover: invertir colores */
+.boton-leer-mas:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen a la DERECHA */
+.contenedor-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-imagen img {
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* ========== SECCIÓN EMPRESAS COLABORADORAS ========== */
+.seccion-empresas {
+  padding: 80px 20px;
+  background-color: white;
+  width: 100%;
+}
+
+.contenedor-empresas {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Título centrado y grande */
+.titulo-empresas {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 60px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-empresas::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Grid para logos - 3 columnas */
+.grid-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Contenedor de cada logo */
+.logo-empresa {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para logos */
+.logo-empresa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Imágenes dentro de los logos */
+.logo-empresa img {
+  max-width: 100%;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(50%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para imágenes */
+.logo-empresa:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* ========== FOOTER MEJORADO ========== */
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 60px 20px 30px;
+  margin-top: 80px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.footer-columna {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Títulos de sección */
+.footer-info h3,
+.footer-menu h3,
+.footer-social h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  font-weight: 600;
+}
+
+/* ===== COLUMNA 1: CONTACTO ===== */
+.footer-info p {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.6;
+  color: #dcdde1;
+}
+
+.footer-info i {
+  color: #3498db;
+  margin-right: 12px;
+  margin-top: 4px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.horario-detalle,
+.direccion-detalle {
+  margin-left: 32px;
+  margin-bottom: 15px;
+}
+
+.horario-detalle p,
+.direccion-detalle p {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.horario-detalle strong,
+.footer-info strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== COLUMNA 2: MENÚ RÁPIDO ===== */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #dcdde1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 1rem;
+}
+
+.footer-links i {
+  color: #3498db;
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+/* ===== COLUMNA 3: REDES SOCIALES ===== */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+/* Iconos simples - sin efectos */
+.footer-social-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Logo en el footer */
+.footer-logo {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid #34495e;
+}
+
+.footer-logo img {
+  max-height: 50px;
+  width: auto;
+  opacity: 0.9;
+}
+
+/* ===== COPYRIGHT ===== */
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #34495e;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.copyright {
+  color: #95a5a6;
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* =========================================== */
+/* MEDIA QUERIES - RESPONSIVE COMPLETO         */
+/* =========================================== */
+
+/* ===== TABLET (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  /* Grid de cursos: 4 → 2 columnas */
+  .grid-cursos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  /* Grid de logos: 3 → 2 columnas */
+  .grid-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  /* Títulos más pequeños */
+  .titulo-grande {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .titulo-cursos,
+  .titulo-empresas,
+  .titulo-nosotros {
+    font-size: 2.2rem;
+  }
+
+  /* Footer: 3 → 2 columnas */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  /* Sobre nosotros: flex en columna */
+  .contenedor-nosotros {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .contenido-texto {
+    text-align: center;
+  }
+
+  .titulo-nosotros::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Botones más pequeños */
+  .botones img {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+/* ===== MÓVIL GRANDE (576px - 768px) ===== */
+@media (max-width: 768px) {
+  /* NAVBAR RESPONSIVE */
+  .navbar {
+    flex-wrap: nowrap;
+    padding: 12px 20px;
+  }
+
+  /* Ocultar menú y redes en móvil */
+  .nav-center-container,
+  .nav-social {
+    display: none;
+  }
+
+  /* Mostrar hamburguesa */
+  .burger-menu {
+    display: flex;
+    order: 2;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  /* Menú móvil cuando está activo */
+  .nav-center-container.mobile-active {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .nav-center-container.mobile-active .nav-links {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .nav-center-container.mobile-active .nav-links li {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-center-container.mobile-active .nav-links a {
+    padding: 10px 0;
+    justify-content: space-between;
+  }
+
+  /* Dropdowns en móvil */
+  .nav-center-container.mobile-active .has-dropdown .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px 0 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: none;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+
+  .nav-center-container.mobile-active .has-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .nav-center-container.mobile-active .dropdown-menu a {
+    padding: 8px 25px;
+    font-size: 0.9rem;
+  }
+
+  /* Redes sociales en móvil */
+  .nav-social.mobile-active {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* SECCIÓN COMPLETA */
+  .seccion-completa {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .titulo-grande {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .galeria-imagenes {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tarjeta-imagen {
+    max-width: 90%;
+    min-width: auto;
+  }
+
+  .fondo-blanco {
+    height: 160px;
+    max-width: 400px;
+  }
+
+  /* CURSOS */
+  .seccion-cursos {
+    padding: 50px 15px;
+  }
+
+  .titulo-cursos {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .grid-cursos {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 25px;
+  }
+
+  .contenedor-imagenes {
+    height: 180px;
+  }
+
+  /* SOBRE NOSOTROS */
+  .seccion-nosotros {
+    padding: 60px 15px;
+  }
+
+  .titulo-nosotros {
+    font-size: 2rem;
+  }
+
+  .descripcion-nosotros {
+    font-size: 1.1rem;
+  }
+
+  .contenedor-imagen img {
+    max-height: 400px;
+  }
+
+  /* EMPRESAS */
+  .seccion-empresas {
+    padding: 60px 15px;
+  }
+
+  .titulo-empresas {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .grid-logos {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .logo-empresa {
+    height: 150px;
+    padding: 20px;
+  }
+
+  /* FOOTER */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  footer {
+    padding: 40px 15px 20px;
+    margin-top: 40px;
+  }
+
+  /* BOTONES */
+  .botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botones img {
+    height: 300px;
+    width: 300px;
+    max-width: 90%;
+  }
+
+  /* TEXTO */
+  .texto {
+    font-size: 1.1rem;
+    padding: 20px 15px;
+    margin: 20px auto;
+  }
+}
+
+/* ===== MÓVIL PEQUEÑO (hasta 576px) ===== */
+@media (max-width: 576px) {
+  /* NAVBAR más compacto */
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  /* Títulos más pequeños */
+  .titulo-grande {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .titulo-cursos,
+  .titulo-empresas,
+  .titulo-nosotros {
+    font-size: 1.6rem;
+  }
+
+  /* Sección completa */
+  .fondo-blanco {
+    height: 140px;
+    padding: 15px;
+  }
+
+  /* Cursos */
+  .contenedor-imagenes {
+    height: 150px;
+  }
+
+  .descripcion-curso {
+    font-size: 0.9rem;
+    min-height: 60px;
+  }
+
+  /* Botón leer más */
+  .boton-leer-mas {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+
+  /* Imágenes en botones */
+  .botones img {
+    height: 250px;
+    width: 250px;
+  }
+
+  /* Footer ajustes finales */
+  .footer-info h3,
+  .footer-menu h3,
+  .footer-social h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-info p,
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== EXTRA PEQUEÑO (hasta 400px) ===== */
+@media (max-width: 400px) {
+  .titulo-grande {
+    font-size: 1.4rem;
+  }
+
+  .botones img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .fondo-blanco {
+    height: 120px;
+  }
+
+  .logo-empresa {
+    height: 120px;
+    padding: 15px;
+  }
+
+  .texto {
+    font-size: 1rem;
+    padding: 15px 10px;
+  }
+}
+
+/* ===== ORIENTACIÓN HORIZONTAL (landscape) ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .seccion-completa {
+    min-height: 120vh;
+  }
+
+  .titulo-grande {
+    margin-bottom: 30px;
+  }
+
+  .galeria-imagenes {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tarjeta-imagen {
+    min-width: 250px;
+    max-width: 300px;
+  }
+
+  .fondo-blanco {
+    height: 150px;
+  }
+}
+
+/* ===== IMPRESIÓN ===== */
+@media print {
+  .navbar,
+  .burger-menu,
+  .nav-social,
+  .fondo-completo::before,
+  .boton-leer-mas,
+  .social-icons,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .seccion-completa {
+    background: white !important;
+  }
+
+  .fondo-completo {
+    background: none !important;
+  }
+
+  .titulo-grande {
+    color: black !important;
+    text-shadow: none !important;
+  }
+}
